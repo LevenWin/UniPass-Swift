@@ -107,7 +107,7 @@ public class ConnectPageController: UIViewController, WKNavigationDelegate, WKSc
             if let body = body {
                 if let type = body["type"] as? String {
                     if type == "UP_RESPONSE" {
-                        if let payloadData = (body["payload"] as? String)?.data(using: .utf8),  let json = try? JSONSerialization.jsonObject(with: payloadData, options: [.fragmentsAllowed]) as? [String: Any] {
+                        if let payloadData = (body["payload"] as? String)?.data(using: .utf8),  let jsonAny = try? JSONSerialization.jsonObject(with: payloadData, options: [.fragmentsAllowed]), let json =  jsonAny as? [String: Any] {
                             
                             if (json["type"] as? String) == "DECLINE" {
                                 self.complete(nil, "user reject connect")

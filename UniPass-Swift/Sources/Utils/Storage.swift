@@ -15,7 +15,7 @@ class Storage {
     }
     
     class func getUpAccount() -> UpAccount? {
-        if let jsonString = UserDefaults.standard.object(forKey: upAccountKey) as? String, let data = jsonString.data(using: .utf8),  let map = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) as? [String: String] {
+        if let jsonString = UserDefaults.standard.object(forKey: upAccountKey) as? String, let data = jsonString.data(using: .utf8),  let obj = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]), let map = obj as? [String: String] {
             let account = UpAccount(address: map["address"] ?? "", email: map["email"] ?? "", newborn:  map["newborn"] ?? "")
             return account
         }
