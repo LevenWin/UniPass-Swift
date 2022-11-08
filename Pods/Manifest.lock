@@ -1,0 +1,35 @@
+PODS:
+  - BigInt (5.0.0)
+  - CryptoSwift (1.0.0)
+  - secp256k1.swift (0.1.4)
+  - UniPass-Swift (0.0.1):
+    - WalletConnectWeb3
+  - WalletConnectWeb3 (1.0.1):
+    - BigInt (~> 5.0.0)
+    - CryptoSwift (~> 1.0.0)
+    - secp256k1.swift (~> 0.1.1)
+
+DEPENDENCIES:
+  - UniPass-Swift (from `UniPass-Swift`)
+
+SPEC REPOS:
+  trunk:
+    - BigInt
+    - CryptoSwift
+    - secp256k1.swift
+    - WalletConnectWeb3
+
+EXTERNAL SOURCES:
+  UniPass-Swift:
+    :path: UniPass-Swift
+
+SPEC CHECKSUMS:
+  BigInt: 74b4d88367b0e819d9f77393549226d36faeb0d8
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  UniPass-Swift: 82b7723f0b50bf321b71d15476629015ea995b23
+  WalletConnectWeb3: 39f640174c7f69992894d91a2ba8f54b2aba6cde
+
+PODFILE CHECKSUM: 8f97b051a8b16c2719e7fd8f27c5b1c46197020f
+
+COCOAPODS: 1.11.0
