@@ -18,10 +18,5 @@
     "git": "git@github.com:UniPassID/unipass-flutter-web-sdk.git",
     "tag": "0.0.1"
   },
-  "source_files": "Sources/**/*.{h,m,swift}",
-  "dependencies": {
-    "WalletConnectWeb3": [
-
-    ]
-  }
+  "source_files": "Sources/**/*.{h,m,swift}"
 }

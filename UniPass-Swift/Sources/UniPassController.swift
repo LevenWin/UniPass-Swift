@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Web3
 public class UniPassController {
     
     var config: UniPassConfig

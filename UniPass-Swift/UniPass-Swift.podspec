@@ -11,6 +11,5 @@ Pod::Spec.new do |s|
   s.author           = { 'leven' => 'isrealleven@gmail.com' }
   s.platform         = :ios, "13.0"
   s.source           = { :git => 'git@github.com:UniPassID/unipass-flutter-web-sdk.git', :tag => "#{s.version}" }
-  s.source_files     = 'UniPass-Swift/Sources/**/*.{h,m,swift}'
-  s.dependency 'WalletConnectWeb3'
+  s.source_files     = 'Sources/**/*.{h,m,swift}'
 end
