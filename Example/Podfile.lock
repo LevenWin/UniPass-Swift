@@ -1,0 +1,16 @@
+PODS:
+  - UniPass_Swift (0.0.1)
+
+DEPENDENCIES:
+  - UniPass_Swift (from `../`)
+
+EXTERNAL SOURCES:
+  UniPass_Swift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UniPass_Swift: f12ff645b4a750dfdade15ab51e9623a2c6ff498
+
+PODFILE CHECKSUM: 7bb08e4a4299324cec948c45dffbf288a77df05e
+
+COCOAPODS: 1.11.0

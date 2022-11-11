@@ -11,12 +11,12 @@ let upAccountKey = "unipass_user_accounts"
 class Storage {
     
     class func saveUpAccount(account: UpAccount) {
-        UserDefaults.standard.set(account.toJsonString, forKey: upAccountKey)
+        UserDefaults.standard.set(account.toJsonString(), forKey: upAccountKey)
     }
     
     class func getUpAccount() -> UpAccount? {
-        if let jsonString = UserDefaults.standard.object(forKey: upAccountKey) as? String, let data = jsonString.data(using: .utf8),  let obj = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]), let map = obj as? [String: String] {
-            let account = UpAccount(address: map["address"] ?? "", email: map["email"] ?? "", newborn:  map["newborn"] ?? "")
+        if let jsonString = UserDefaults.standard.object(forKey: upAccountKey) as? String, let data = jsonString.data(using: .utf8),  let obj = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]), let map = obj as? [String: Any] {
+            let account = UpAccount(address: map["address"] as? String ?? "", email: map["email"] as? String ?? "", newborn:  map["newborn"] as? Int ?? 0)
             return account
         }
         return nil

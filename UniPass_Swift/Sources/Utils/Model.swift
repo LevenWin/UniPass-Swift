@@ -32,16 +32,16 @@ public enum MessageType {
 public class UpAccount {
     public var address: String
     public var email: String
-    public var newborn: String
+    public var newborn: Int
     
-    public init(address: String, email: String, newborn: String) {
+    public init(address: String, email: String, newborn: Int) {
         self.address = address
         self.email = email
         self.newborn = newborn
     }
     
     public func toJsonString() -> String? {
-        let map = ["adddress": self.address, "email": self.email, "newborn": self.newborn]
+        let map = ["adddress": self.address, "email": self.email, "newborn": self.newborn] as [String : Any]
         if let data = try? JSONSerialization.data(withJSONObject: map, options: [.fragmentsAllowed]), let jsonString = String.init(data: data, encoding: .utf8) {
             return jsonString
         }
