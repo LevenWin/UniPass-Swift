@@ -18,5 +18,10 @@
     "git": "git@github.com:UniPassID/unipass-flutter-web-sdk.git",
     "tag": "0.0.1"
   },
-  "source_files": "UniPass_Swift/Sources/**/*.{h,m,swift}"
+  "source_files": "UniPass_Swift/Sources/**/*.{h,m,swift}",
+  "dependencies": {
+    "Web3": [
+      "0.4.2"
+    ]
+  }
 }

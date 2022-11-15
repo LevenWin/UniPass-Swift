@@ -1,16 +1,40 @@
 PODS:
-  - UniPass_Swift (0.0.1)
+  - BigInt (4.0.0)
+  - CryptoSwift (1.6.0)
+  - secp256k1.swift (0.1.4)
+  - UniPass_Swift (0.0.1):
+    - Web3 (= 0.4.2)
+  - Web3 (0.4.2):
+    - Web3/Core (= 0.4.2)
+    - Web3/HTTPExtension (= 0.4.2)
+  - Web3/Core (0.4.2):
+    - BigInt (~> 4.0)
+    - CryptoSwift (~> 1.0)
+    - secp256k1.swift (~> 0.1)
+  - Web3/HTTPExtension (0.4.2):
+    - Web3/Core
 
 DEPENDENCIES:
   - UniPass_Swift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - BigInt
+    - CryptoSwift
+    - secp256k1.swift
+    - Web3
 
 EXTERNAL SOURCES:
   UniPass_Swift:
     :path: "../"
 
 SPEC CHECKSUMS:
-  UniPass_Swift: f12ff645b4a750dfdade15ab51e9623a2c6ff498
+  BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
+  CryptoSwift: 562f8eceb40e80796fffc668b0cad9313284cfa6
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  UniPass_Swift: 565adf6caed95eb5973dc460e9738410740d4e52
+  Web3: 7b2c30f98f24cc290bc671ab525d7a30a2afbc73
 
-PODFILE CHECKSUM: 7bb08e4a4299324cec948c45dffbf288a77df05e
+PODFILE CHECKSUM: c4848d6a94026d5eb48123f7ca4a40aa9b96cf4c
 
 COCOAPODS: 1.11.0

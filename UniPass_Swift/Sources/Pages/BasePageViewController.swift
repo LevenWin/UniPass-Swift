@@ -81,6 +81,13 @@ public class BasePageViewController: UIViewController, WKNavigationDelegate, WKS
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == titleKeyPath {
             self.title = change?[.newKey] as? String
+        } else if keyPath == estimatedProgressKeyPath {
+            if let progress = change?[.newKey] as? Double {
+                print(progress)
+                if progress == 1.0 {
+                    NotificationCenter.default.post(name: .init(rawValue: UniPassController.UniPassDidCreateNotification), object: nil)
+                }
+            }
         }
     }
     

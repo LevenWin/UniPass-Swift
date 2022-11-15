@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.platform         = :ios, "13.0"
   s.source           = { :git => 'git@github.com:UniPassID/unipass-flutter-web-sdk.git', :tag => "#{s.version}" }
   s.source_files     = 'UniPass_Swift/Sources/**/*.{h,m,swift}'
+  s.dependency 'Web3', '0.4.2'
 end

@@ -41,7 +41,7 @@ public class UpAccount {
     }
     
     public func toJsonString() -> String? {
-        let map = ["adddress": self.address, "email": self.email, "newborn": self.newborn] as [String : Any]
+        let map = ["address": self.address, "email": self.email, "newborn": self.newborn] as [String : Any]
         if let data = try? JSONSerialization.data(withJSONObject: map, options: [.fragmentsAllowed]), let jsonString = String.init(data: data, encoding: .utf8) {
             return jsonString
         }

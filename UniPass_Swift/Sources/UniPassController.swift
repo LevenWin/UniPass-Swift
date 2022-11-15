@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 public class UniPassController {
     
+    public static let UniPassDidCreateNotification = "UniPassDidLoad"
+    
     var config: UniPassConfig
     
     // 连接web3网络
@@ -22,6 +24,10 @@ public class UniPassController {
         self.config = UniPassConfig(nodeRPC: rpcUrl, chainType: chainType, env: env, domain: option.domain ?? upDomain, proto: option.proto ?? "https", appSetting: appSetting)
     }
     
+    static public func getUniPassPage() -> UIViewController {
+        let vc = UniPassViewController(url: "https://testnet.wallet.unipass.id")
+        return vc
+    }
     
     public func connect(in vc: UIViewController, complete:  @escaping ((UpAccount?, String?) -> Void)) {
         if let upAccount = Storage.getUpAccount() {
@@ -35,6 +41,16 @@ public class UniPassController {
                 complete(account, errMsg)
             }
             vc.present(UINavigationController(rootViewController: connectVc), animated: true, completion: nil)
+        }
+    }
+    
+    public func sendTransaction(in vc: UIViewController, _ transaction: TransactionMessage, complete: @escaping ((String?, String?) -> Void)) {
+        if let _ = Storage.getUpAccount() {
+            let url = getWalletUrl(messageType: .upSendTransaction, domain: config.domain, proto: config.proto)
+            let sendVC = SendTransactionPageController(url: url, transaction: transaction, appSetting: config.appSetting, complete: complete)
+            vc.present(UINavigationController(rootViewController: sendVC), animated: true, completion: nil)
+        } else {
+            complete(nil, "invalid user info")
         }
     }
     

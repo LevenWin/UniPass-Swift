@@ -103,49 +103,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14EFD6B2-30B4-4AAC-AD79-781B615AF8CE"
+            uuid = "C5FCEBE5-0CEC-412F-AAA0-7353A2B6D2D1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../UniPass_Swift/Sources/Pages/ConnectPageController.swift"
+            filePath = "../UniPass_Swift/Sources/Pages/BasePageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "observeValue(forKeyPath:of:change:context:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "14EFD6B2-30B4-4AAC-AD79-781B615AF8CE - 92db48439babcbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; () in UniPass_Swift.ConnectPageController.viewDidLoad() -&gt; ()"
-                  moduleName = "UniPass_Swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wild/Desktop/Mine/Web3/UniPass-Swift/UniPass_Swift/Sources/Pages/ConnectPageController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1721">
-               </Location>
-               <Location
-                  uuid = "14EFD6B2-30B4-4AAC-AD79-781B615AF8CE - 92db48439babcbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; () in UniPass_Swift.ConnectPageController.viewDidLoad() -&gt; ()"
-                  moduleName = "UniPass_Swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wild/Desktop/Mine/Web3/UniPass-Swift/UniPass_Swift/Sources/Pages/ConnectPageController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "2260">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

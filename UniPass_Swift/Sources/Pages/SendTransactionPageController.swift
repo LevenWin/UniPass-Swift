@@ -1,25 +1,26 @@
 //
-//  ConnectPage.swift
-//  UniWallet
+//  SendTransactionPageController.swift
+//  UniPass_Swift
 //
-//  Created by leven on 2022/11/6.
+//  Created by leven on 2022/11/14.
 //
 
 import Foundation
-import UIKit
-import WebKit
-
-public class ConnectPageController: BasePageViewController {
-
-    let complete: ((UpAccount?, String?) -> Void)
+import Web3
+import BigInt
+ class SendTransactionPageController: BasePageViewController {
+    
+    let complete: ((String?, String?) -> Void)
         
     let appSetting: AppSetting
     
-    init(url: String, appSetting: AppSetting, complete: @escaping ((UpAccount?, String?) -> Void)) {
+    let transaction: TransactionMessage
+    
+    init(url: String, transaction: TransactionMessage ,appSetting: AppSetting, complete: @escaping ((String?, String?) -> Void)) {
         self.appSetting = appSetting
+        self.transaction = transaction
         self.complete = complete
         super.init(url: url)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -29,18 +30,25 @@ public class ConnectPageController: BasePageViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addJavaScriptHandler(handlerName: "onConnectReady") { [weak self]arg in
+        self.addJavaScriptHandler(handlerName: "onSendTransactionReady") { [weak self]arg in
             guard let self = self else { return }
-            let value: [String: Any] = ["type": "UP_LOGIN",
-                                        "appSetting" : ["appName" : self.appSetting.appName ?? "", "appIcon": self.appSetting.appIcon ?? "" , "chain" : self.appSetting.chainType?.rawValue ?? "", "theme": self.appSetting.theme?.rawValue ?? ""]]
+            let value: [String: Any] = ["type": "UP_TRANSACTION",
+                                        "appSetting" : ["appName" : self.appSetting.appName ?? "", "appIcon": self.appSetting.appIcon ?? "", "chain" : self.appSetting.chainType?.rawValue ?? "", "theme": self.appSetting.theme?.rawValue ?? ""],
+                                        "payload": [
+                                            "from": self.transaction.from,
+                                            "to": self.transaction.to,
+                                            "value": self.transaction.value,
+                                            "data": self.transaction.data,
+                                        ],
+            ]
             if let jsonData = try? JSONSerialization.data(withJSONObject: value, options: [.fragmentsAllowed]), let jsonString = String.init(data: jsonData, encoding: .utf8) {
-                self.evaluateJavaScript("window.onConnectPageReady(\(jsonString))") { res, err in
+                self.evaluateJavaScript("window.onSendTransactionReady(\(jsonString))") { res, err in
                     
                 }
             }
         }
         
-        self.addJavaScriptHandler(handlerName: "onConnectResponse") { [weak self]arg in
+        self.addJavaScriptHandler(handlerName: "onSendTransactionResponse") { [weak self]arg in
             guard let self = self, let argMap = arg as? [String: Any] else { return }
             if let type = argMap["type"] as? String {
                 if type == "UP_RESPONSE" {
@@ -50,9 +58,8 @@ public class ConnectPageController: BasePageViewController {
                             self.complete(nil, "user reject connect")
                             self.gotBack()
                         } else {
-                            if let data = json["data"] as? [String: Any] {
-                                let upAccount = UpAccount(address: data["address"] as? String ?? "" , email: data["email"]  as? String ?? "", newborn: data["newborn"] as? Int ?? 0)
-                                self.complete(upAccount, nil)
+                            if let txHash = json["data"] as? String {
+                                self.complete(txHash, nil)
                                 self.gotBack()
                             } else {
                                 self.complete(nil, "data decode error")
@@ -67,4 +74,7 @@ public class ConnectPageController: BasePageViewController {
             }
         }
     }
+    
+
+    
 }
